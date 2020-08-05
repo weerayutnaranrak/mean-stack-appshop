@@ -1,0 +1,59 @@
+
+       <mdb-card cascade="true" wider="true" class="card-ecommerce mt-3 mb-3">
+        <h2 class="h1 font-weight-bold text-center h1 mt-2">All Orders</h2>
+        <table mdbTable mdbTableScroll scrollY="true" maxHeight="800" bordered="true" class="table-success mt-2 text-center">
+            <thead>
+              <tr>
+                <th *ngFor="let head of headElements; let i = index" scope="col" class="table-primary">{{head}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let el of allbasget; let i = index">
+                <th scope="row">{{el._id}}</th>
+                <td>{{el.date}}</td>
+                <td>{{el.product.length}}</td>
+                <td>{{el.total}}</td>
+                <td><button mdbBtn color="indigo" size="sm" mdbWavesEffect type="button" class="m-0" data-toggle="modal" data-target="#basicExample"
+                    (click)="addmodel(el._id,el.product,el.total,el.date);basicModal.show();" mdbWavesEffect>Detail</button></td>
+              </tr>
+            </tbody>
+        </table>
+     </mdb-card> 
+
+     <div style="overflow-y: auto" mdbModal #basicModal="mdbModal" class="modal fade bottom" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+     aria-hidden="true" >
+     <div class="modal-dialog modal-notify modal-success" role="document">
+       <!--Content-->
+       <div class="modal-content">
+         <!--Header-->
+         <div class="modal-header">
+           <p class="heading lead">Order : {{idmodel}}</p>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="basicModal.hide()">
+             <span aria-hidden="true" class="white-text">&times;</span>
+           </button>
+         </div>
+   
+         <!--Body-->
+         <div class="modal-body">
+           <div class="text-center">
+            <table mdbTable dbTableScroll scrollY="true" maxHeight="200">
+              <thead>
+                <tr>
+                  <th *ngFor="let head of headElements2; let i = index" scope="col" class="table-primary">{{head}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let el of productmodel; let i = index">
+                  <td>{{el.name}}</td>
+                  <td>{{el.price}} $</td>
+                </tr>
+                <tr class="table-danger">
+                  <td><strong class="font-weight-bold">Date</strong><br>{{date}}</td>
+                  <td><strong class="font-weight-bold">Price Total</strong><br>{{totalmodel}} $</td>
+                </tr>
+              </tbody>
+          </table>
+           </div>
+         </div>
+     </div>
+   </div>

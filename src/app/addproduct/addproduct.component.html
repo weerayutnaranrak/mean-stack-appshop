@@ -1,0 +1,33 @@
+<!-- Material form contact -->
+<mdb-card class="size mt-5">
+    <mdb-card-header class="info-color white-text text-center py-4">
+      <h5>
+        <strong>Add Product</strong>
+      </h5>
+    </mdb-card-header>
+    <mdb-card-body class="px-lg-5 pt-0">
+      <form class="text-center" style="color: #757575;" #productfrom = "ngForm" (submit)="saveProduct(productfrom.value);productfrom.reset();">
+        <div class="md-form mt-3">
+          <input ngModel name="name" type="text" id="" class="form-control" mdbInput>
+          <label for="materialContactFormName">Product Name</label>
+        </div>
+        
+        <div class="md-form">
+            <textarea ngModel name="detail" type="text" id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+            <label for="materialContactFormMessage">Message</label>
+          </div>
+        <div class="md-form">
+          <input ngModel name="price" type="number" id="" class="form-control" mdbInput>
+          <label for="materialContactFormEmail">Price</label>
+        </div>
+        <div class="md-form mt-3">
+            <input ngModel name="imgurl" type="text" id="" class="form-control" mdbInput>
+            <label for="materialContactFormName">Url img</label>
+          </div>
+        <button mdbBtn color="info"  rounded="true" block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect
+          type="submit">Save</button>
+          <button mdbBtn color="danger"  rounded="true" block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect
+          type="reset">Reset</button>
+      </form>
+    </mdb-card-body>
+  </mdb-card>

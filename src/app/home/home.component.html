@@ -1,0 +1,74 @@
+<div class="row m-4">
+<div class="col-md-12 col-lg-8">
+<mdb-card cascade="true" wider="true" class="card-ecommerce">
+<section class="text-center pb-3">
+    <h2 class="h1 font-weight-bold text-center h1 ">Product</h2>
+    <div class="row">
+      <div class="col-lg-4 col-md-12 mb-3" *ngFor="let item of allproducts">
+        <mdb-card cascade="true" wider="true" class="card-ecommerce" >
+          <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+            <mdb-card-img src={{item.imgurl}}
+              alt="sample photo"></mdb-card-img>
+          </div>
+          <mdb-card-body cascade="true" class="text-center no-padding">
+            <mdb-card-title>
+              <h4 class="card-title">
+                <strong>
+                  <a href="">{{item.name}}</a>
+                </strong>
+              </h4>
+            </mdb-card-title>
+            <mdb-card-text>{{item.detail}}</mdb-card-text>
+            <mdb-card-footer>
+              <span class="float-left font-weight-bold">
+                <strong>{{item.price}} $</strong>
+              </span>
+              <span class="float-right">
+                <a (click)="addbusget(item.price,item.name,item.text)"><mdb-icon fas icon="cart-plus" class="grey-text ml-3"></mdb-icon> </a>
+              </span>
+            </mdb-card-footer>
+          </mdb-card-body>
+        </mdb-card>
+      </div>
+      </div>
+  </section>
+</mdb-card>
+</div>
+<div class="col-lg-4">
+<mdb-card cascade="true" wider="true" class="card-ecommerce">
+    <h2 class="h1 font-weight-bold text-center h1 ">Basket</h2>
+    <h3 class="text-center">Total price : {{totalprice}} $ </h3>
+   <div class="row">
+     <div class="col-lg-12">
+       <div class="text-center">
+        <button mdbBtn color="primary" type="submit" (click)="savebasget()"> save </button>
+        <button mdbBtn color="danger" type="submit" (click)="resetbasget()"> reset </button>
+       </div>
+       
+     </div>
+     <div class="col-12" *ngFor="let item of basget ; index as i;">
+        <mdb-card cascade="true" wider="true" class="card-ecommerce m-1">
+            <mdb-card-body cascade="true" class="text-center">
+              <mdb-card-title>
+                <h4>
+                  <strong>{{item.name + i}}</strong>
+                </h4>
+              </mdb-card-title>
+              <mdb-card-text>{{item.text}}</mdb-card-text>
+              <mdb-card-footer>
+                <span class="float-left font-weight-bold">
+                  <strong>{{item.price}}</strong>
+                </span>
+                <span class="float-right">
+                    <a (click)="cutbasget(item.price,i)" id="icon">
+                    <mdb-icon fas icon="minus-circle"></mdb-icon>
+                   </a>
+                </span>
+              </mdb-card-footer>
+            </mdb-card-body>
+          </mdb-card>
+     </div>
+   </div>
+</mdb-card>
+</div>
+</div>
