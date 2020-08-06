@@ -9,6 +9,8 @@ const ProductModel = require('./product_schema')
 const BasgetModel = require('./basget_schema')
 
 
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
