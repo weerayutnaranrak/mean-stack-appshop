@@ -16,7 +16,7 @@ export class OrdersComponent implements OnInit {
   date:Date;
   constructor(private Http:HttpClient) { }
   getproduct(){
-    this.Http.get<any>('http://localhost:3000/getbasgetapi').subscribe(result=>{
+    this.Http.get<any>('getbasgetapi').subscribe(result=>{
     this.allbasget= result.data;
     }); 
   }
