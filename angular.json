@@ -11,6 +11,7 @@
         }
       },
       "root": "",
+      "outDir":"dist",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {

@@ -14,7 +14,7 @@ export class AddproductComponent implements OnInit {
     
   }
   saveProduct(productdata){
-    this.Http.post<any>("addproductapi",productdata).subscribe(result=>{
+    this.Http.post<any>("http://localhost:3000/addproductapi",productdata).subscribe(result=>{
     alert(JSON.stringify(result))
     })
   }
