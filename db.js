@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1/appshop',{useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://weerayut:za056659267@cluster0.sdgiz.mongodb.net/demoapp?retryWrites=true&w=majority',{useNewUrlParser: true})
 
 mongoose.connection.on('connected',function (){
     console.log('Mongoose connection on');
