@@ -13,7 +13,7 @@ var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded({ extended: true}))
 
 app.use(function(req,res,next){
     res.setHeader("Access-Control-Allow-Origin", "*"); 
