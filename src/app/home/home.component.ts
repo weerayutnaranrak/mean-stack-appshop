@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   getproduct(){
-    this.Http.get<any>('getproductapi').subscribe(result=>{
+    this.Http.get<any>('/getproductapi').subscribe(result=>{
     this.allproducts= result.data;
     });
   }
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   }
   savebasget(){
     this.basgetdata = [{date:this.date,product:this.basget,total:this.totalprice}]
-    this.Http.post<any>("addbasgetapi",this.basgetdata).subscribe(result=>{
+    this.Http.post<any>("/addbasgetapi",this.basgetdata).subscribe(result=>{
     alert(JSON.stringify(result));
     })
     this.resetbasget();

@@ -9,20 +9,12 @@ const ProductModel = require('./product_schema')
 const BasgetModel = require('./basget_schema')
 
 
-var distDir = __dirname + "/dist/";
+var distDir = __dirname + "/dist";
 app.use(express.static(distDir));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true}))
 
-app.use(function(req,res,next){
-    res.setHeader("Access-Control-Allow-Origin", "*"); 
-    res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
-    res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS"); 
-    res.setHeader("X-Powered-By",' 3.2.1');
-    res.setHeader("Content-Type", "application/json;charset=utf-8");
-    next();
-});
 app.get('/getproductapi', (req, res) => {
   ProductModel.find((err,doc)=>{
     if(err) res.json({"status":"failed"});
