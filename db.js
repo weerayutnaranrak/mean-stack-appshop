@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://weerayut:za056659267@cluster0.sdgiz.mongodb.net/demoapp?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://appdemo:appdemo@cluster0.sdgiz.mongodb.net/demoapp?retryWrites=true&w=majority',
 {useNewUrlParser: true, useUnifiedTopology: true})
 
 mongoose.connection.on('connected',function (){
