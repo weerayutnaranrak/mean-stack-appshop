@@ -9,7 +9,7 @@ const ProductModel = require('./product_schema')
 const BasgetModel = require('./basget_schema')
 
 
-var distDir = __dirname + "/dist";
+var distDir = __dirname + "/dist/AppShop";
 app.use(express.static(distDir));
 
 app.use(bodyParser.json())
@@ -20,6 +20,7 @@ app.get('/getproductapi', (req, res,next) => {
     ProductModel.find((err,doc)=>{
       if(err) res.json({"status":"failed"});
       res.json({result:"secces",data:doc})
+      res.send(doc)
     })
   } catch (error) {
     next(err);
