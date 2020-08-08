@@ -17,27 +17,28 @@ app.use(bodyParser.urlencoded({ extended: true}))
 
 app.get('/getproductapi', (req, res) => {
     ProductModel.find((err,doc)=>{
-      if(err) res.json({"status":"failed"});
+      if(err) res.send(err);
       res.end(doc)
     })
 })
 app.get('/getbasgetapi', (req, res) => {
     BasgetModel.find((err,doc)=>{
-      if(err) res.json({"status":"failed"});
+      if(err) res.send(err);
       res.end(doc)
+    })  
 })
 
 app.post('/addproductapi', function (req, res) {
 
     ProductModel.create(req.body,(err,doc)=>{
-      if(err) res.json({"status":"failed"});
+      if(err) res.send(err);
       res.end(doc)
+    })  
 })
 
 app.post('/addbasgetapi', function (req, res) {
-
     BasgetModel.create(req.body,(err,doc)=>{
-      if(err) res.json({"status":"failed"});
+      if(err) res.send(err);
       res.end(doc)
   })
 
