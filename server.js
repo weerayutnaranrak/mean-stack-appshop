@@ -15,33 +15,55 @@ app.use(express.static(distDir));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true}))
 
-app.get('/getproductapi', (req, res) => {
+app.get('/getproductapi', (req, res,next) => {
+  try {
     ProductModel.find((err,doc)=>{
-      if(err) res.send(err);
-      res.end(doc)
+      if(err) res.json({"status":"failed"});
+      res.json({result:"secces",data:doc})
+      
     })
+  } catch (error) {
+    next(err);
+  }
+  
 })
-app.get('/getbasgetapi', (req, res) => {
+app.get('/getbasgetapi', (req, res,next) => {
+  try {
     BasgetModel.find((err,doc)=>{
-      if(err) res.send(err);
-      res.end(doc)
-    })  
+      if(err) res.json({"status":"failed"});
+      res.json({result:"secces",data:doc})
+      
+    })
+  } catch (error) {
+    next(err);
+  }
+  
 })
 
-app.post('/addproductapi', function (req, res) {
-
+app.post('/addproductapi', function (req, res,next) {
+  try {
     ProductModel.create(req.body,(err,doc)=>{
-      if(err) res.send(err);
-      res.end(doc)
-    })  
+      if(err) res.json({"status":"failed"});
+      res.json({"status":"success"})
+      
+  })
+  } catch (error) {
+    next(err);
+  }
+    
 })
 
-app.post('/addbasgetapi', function (req, res) {
+app.post('/addbasgetapi', function (req, res,next) {
+  try {
     BasgetModel.create(req.body,(err,doc)=>{
-      if(err) res.send(err);
-      res.end(doc)
+      if(err) res.json({"status":"failed"});
+      res.json({"status":"success"})
+      
   })
-
+  } catch (error) {
+    next(err);
+  }
+  
 })
 
 
