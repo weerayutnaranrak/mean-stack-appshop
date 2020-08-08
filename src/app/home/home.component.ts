@@ -15,6 +15,11 @@ export class HomeComponent implements OnInit {
   constructor(private Http:HttpClient) {
     
   }
+  ngOnInit(): void {
+    this.totalprice = 0;
+    this.basget=[];
+    this.getproduct();
+  }
 
   getproduct(){
     this.Http.get<any>('/getproductapi').subscribe(result=>{
@@ -43,9 +48,5 @@ export class HomeComponent implements OnInit {
     })
     this.resetbasget();
   }
-  ngOnInit(): void {
-    this.totalprice = 0;
-    this.basget=[];
-    this.getproduct();
-  }
+ 
 }

@@ -21,21 +21,19 @@ app.get('/getproductapi', (req, res,next) => {
       if(err) res.json({"status":"failed"});
       res.json({result:"secces",data:doc})
       res.send(doc)
+      res.end(doc)
     })
   } catch (error) {
     next(err);
   }
   
 })
-// app.get('/check', (req, res,next) => {
-//   return res.status(200);
-  
-// })
-app.get('/getbasgetapi', (req, res) => {
+app.get('/getbasgetapi', (req, res,next) => {
   try {
     BasgetModel.find((err,doc)=>{
       if(err) res.json({"status":"failed"});
       res.json({result:"secces",data:doc})
+      res.end(doc)
     })
   } catch (error) {
     next(err);
@@ -43,11 +41,12 @@ app.get('/getbasgetapi', (req, res) => {
   
 })
 
-app.post('/addproductapi', function (req, res) {
+app.post('/addproductapi', function (req, res,next) {
   try {
     ProductModel.create(req.body,(err,doc)=>{
       if(err) res.json({"status":"failed"});
       res.json({"status":"success"})
+      res.end(doc)
   })
   } catch (error) {
     next(err);
@@ -55,11 +54,12 @@ app.post('/addproductapi', function (req, res) {
     
 })
 
-app.post('/addbasgetapi', function (req, res) {
+app.post('/addbasgetapi', function (req, res,next) {
   try {
     BasgetModel.create(req.body,(err,doc)=>{
       if(err) res.json({"status":"failed"});
       res.json({"status":"success"})
+      res.end(doc)
   })
   } catch (error) {
     next(err);
