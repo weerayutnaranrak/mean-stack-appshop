@@ -27,7 +27,10 @@ app.get('/getproductapi', (req, res,next) => {
   }
   
 })
-
+// app.get('/check', (req, res,next) => {
+//   return res.status(200);
+  
+// })
 app.get('/getbasgetapi', (req, res) => {
   try {
     BasgetModel.find((err,doc)=>{
